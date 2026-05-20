@@ -15,7 +15,7 @@ export default function MainLayout() {
     return (
         <>
 
-            <header className="flex justify-between items-center bg-white rounded-3xl px-6 py-3 shadow-sm">
+            <header className="sticky flex justify-between items-center bg-white rounded-3xl px-6 py-3 shadow-sm">
 
                 <div className="flex items-center gap-2">
                     <img src={logo} alt="Web4Jobs" className="h-8"/>
