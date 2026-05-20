@@ -9,3 +9,5 @@ createRoot(document.getElementById('root')!).render(
         <RouterProvider router={router}/>
     </StrictMode>
 )
+
+document.documentElement.classList.toggle('dark')
