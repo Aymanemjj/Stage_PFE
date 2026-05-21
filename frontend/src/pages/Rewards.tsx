@@ -23,15 +23,15 @@ export default function Rewards() {
     return (
         <div className="p-8 space-y-6">
             <div>
-                <h2 className="text-large font-semibold">Rewards</h2>
+                <h2 className="text-large font-semibold dark:text-white">Rewards</h2>
                 <p className="text-small mt-1 text-muted">Unlock exclusive opportunities by climbing the ranks</p>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
                 {rewards.map((r, i) => (
-                    <div key={i} className={`border rounded-2xl p-6 flex flex-col gap-4 ${r.unlocked ? "border-primary-normal/40" : "border-border"}`}>
+                    <div key={i} className={`border rounded-2xl p-6 flex flex-col gap-4 ${r.unlocked ? "border-primary-normal/40 dark:bg-bg-dark-hover" : "border-border dark:bg-bg-dark-hover dark:border-bg-dark-hover"}`}>
                         <div className="flex justify-between items-start">
-                            <div className={`size-12 rounded-xl flex items-center justify-center text-xl ${r.unlocked ? "bg-primary-normal text-white" : "bg-gray-100 text-muted"}`}>
+                            <div className={`size-12 rounded-xl flex items-center justify-center text-xl ${r.unlocked ? "bg-primary-normal text-white" : "bg-gray-100 dark:bg-bg-dark text-muted"}`}>
                                 {r.icon}
                             </div>
                             <span className={`text-xl ${r.unlocked ? "text-primary-normal" : "text-muted"}`}>
@@ -40,14 +40,14 @@ export default function Rewards() {
                         </div>
 
                         <div>
-                            <h3 className="font-semibold text-sm">{r.title}</h3>
+                            <h3 className="font-semibold text-sm dark:text-white">{r.title}</h3>
                             <p className="text-muted text-xs mt-1">{r.desc}</p>
                         </div>
 
                         <div className="space-y-1.5">
                             <div className="flex justify-between text-xs">
                                 <span className="text-muted">Requirement</span>
-                                <span className={`font-semibold ${r.unlocked ? "text-teal-500" : ""}`}>{r.requirement}</span>
+                                <span className={`font-semibold ${r.unlocked ? "text-teal-500" : "dark:text-white"}`}>{r.requirement}</span>
                             </div>
                             {!r.unlocked && (
                                 <>
@@ -55,7 +55,7 @@ export default function Rewards() {
                                         <span>Progress</span>
                                         <span>{r.progress}%</span>
                                     </div>
-                                    <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                    <div className="w-full h-1.5 bg-gray-100 dark:bg-bg-dark rounded-full overflow-hidden">
                                         <div className="h-full bg-primary-normal rounded-full" style={{ width: `${Math.min(r.progress, 100)}%` }} />
                                     </div>
                                 </>
@@ -67,7 +67,7 @@ export default function Rewards() {
                                 Claim Reward
                             </button>
                         ) : (
-                            <button disabled className="w-full py-3 rounded-xl bg-gray-100 text-muted text-small font-medium cursor-not-allowed">
+                            <button disabled className="w-full py-3 rounded-xl bg-gray-100 dark:bg-bg-dark text-muted text-small font-medium cursor-not-allowed">
                                 Locked
                             </button>
                         )}
@@ -75,14 +75,14 @@ export default function Rewards() {
                 ))}
             </div>
 
-            <div className="border border-border rounded-2xl p-5 bg-primary-normal/5 flex gap-4 items-start">
+            <div className="light:border light:border-border  rounded-2xl p-5 bg-primary-normal/5 flex gap-4 items-start">
                 <div className="size-12 rounded-xl bg-primary-normal flex items-center justify-center text-white text-xl shrink-0">
                     <FiGift />
                 </div>
                 <div>
-                    <h3 className="font-semibold">Keep Climbing!</h3>
+                    <h3 className="font-semibold dark:text-white">Keep Climbing!</h3>
                     <p className="text-small text-muted mt-0.5">Continue completing missions and challenges to unlock more exclusive rewards and opportunities.</p>
-                    <div className="flex items-center gap-4 mt-3 text-small">
+                    <div className="flex items-center gap-4 mt-3 text-small dark:text-white">
                         <span className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-teal-500 inline-block" /> 2 rewards unlocked</span>
                         <span className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-amber-400 inline-block" /> 4 rewards in progress</span>
                     </div>

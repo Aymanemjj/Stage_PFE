@@ -6,7 +6,13 @@
     --color-disabeled: #C1C1C1;
     --color-muted:#7F7F7F;
     --color-border:#e5e5e5;
-    --color-bg: #F7F5FF;
+    --color-bg-light: #F7F5FF;
+    --color-bg-light-hover:#F7F5FF;
+
+    --color-bg-dark: #1E1E1E;
+    --color-bg-dark-hover:#171717;
+
+
 
     --text-large: 32px;
     --text-medium: 24px;

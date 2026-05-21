@@ -1,3 +1,5 @@
+type Rarity = "common" | "rare" | "legendary";
+
 type Achievement = {
     emoji: string
     title: string
@@ -6,7 +8,7 @@ type Achievement = {
     unlocked: boolean
 }
 
-const achievements : Achievement[] = [
+const achievements: Achievement[] = [
     { emoji: "👶", title: "First Steps", desc: "Complete your first course", rarity: "common", unlocked: true },
     { emoji: "⚡", title: "Quick Learner", desc: "Finish 5 courses in a week", rarity: "common", unlocked: true },
     { emoji: "⚔️", title: "Code Warrior", desc: "Solve 50 coding challenges", rarity: "rare", unlocked: true },
@@ -20,18 +22,18 @@ const achievements : Achievement[] = [
     { emoji: "🐦", title: "Early Bird", desc: "Complete tasks before 6 AM 10 times", rarity: "common", unlocked: false },
     { emoji: "👑", title: "Legend", desc: "Reach rank #1 on the leaderboard", rarity: "legendary", unlocked: false },
 ]
-type Rarity= "common" | "rare"| "legendary";
+
 const rarityStyles: Record<Rarity, { badge: string, border: string }> = {
     common: {
-        badge: "bg-gray-100 text-gray-500",
-        border: "border-border",
+        badge: "bg-gray-100 dark:bg-bg-dark-hover text-gray-500",
+        border: "border-border dark:border-bg-dark-hover",
     },
     rare: {
         badge: "bg-primary-normal/10 text-primary-normal",
         border: "border-primary-normal",
     },
     legendary: {
-        badge: "bg-amber-100 text-amber-500",
+        badge: "bg-amber-100 dark:bg-amber-900/30 text-amber-500",
         border: "border-amber-400",
     },
 }
@@ -40,11 +42,11 @@ export default function Achievements() {
     return (
         <div className="p-8 space-y-6">
             <div>
-                <h2 className="text-large font-semibold">Achievements</h2>
+                <h2 className="text-large font-semibold dark:text-white">Achievements</h2>
                 <p className="text-small mt-1 text-muted">Unlock badges by completing special tasks</p>
             </div>
 
-            <div className="flex items-center gap-4 text-small">
+            <div className="flex items-center gap-4 text-small dark:text-white">
                 <span className="flex items-center gap-1.5"><span className="size-3 rounded-full bg-gray-400 inline-block" /> Common</span>
                 <span className="flex items-center gap-1.5"><span className="size-3 rounded-full bg-primary-normal inline-block" /> Rare</span>
                 <span className="flex items-center gap-1.5"><span className="size-3 rounded-full bg-amber-400 inline-block" /> Legendary</span>
@@ -54,13 +56,13 @@ export default function Achievements() {
                 {achievements.map((a, i) => (
                     <div
                         key={i}
-                        className={`border rounded-2xl p-6 flex flex-col items-center gap-3 text-center transition-opacity ${rarityStyles[a.rarity].border} ${!a.unlocked ? "opacity-40" : ""}`}
+                        className={`border dark:bg-bg-dark-hover rounded-2xl p-6 flex flex-col items-center gap-3 text-center transition-opacity ${rarityStyles[a.rarity].border} ${!a.unlocked ? "opacity-40" : ""}`}
                     >
-                        <div className={`size-16 rounded-full flex items-center justify-center text-3xl ${a.unlocked ? "bg-gray-700" : "bg-gray-200"}`}>
+                        <div className={`size-16 rounded-full flex items-center justify-center text-3xl ${a.unlocked ? "bg-gray-700" : "bg-gray-200 dark:bg-bg-dark-hover"}`}>
                             {a.emoji}
                         </div>
                         <div>
-                            <h3 className="font-semibold text-sm">{a.title}</h3>
+                            <h3 className="font-semibold text-sm dark:text-white">{a.title}</h3>
                             <p className="text-muted text-xs mt-0.5">{a.desc}</p>
                         </div>
                         <span className={`text-xs font-medium px-3 py-1 rounded-md uppercase tracking-wide ${rarityStyles[a.rarity].badge}`}>

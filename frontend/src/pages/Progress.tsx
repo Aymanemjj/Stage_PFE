@@ -38,15 +38,15 @@ export default function Progress() {
     return (
         <div className="p-8 space-y-6">
             <div>
-                <h2 className="text-large font-semibold">Progress Dashboard</h2>
+                <h2 className="text-large font-semibold dark:text-white">Progress Dashboard</h2>
                 <p className="text-small mt-1 text-muted">Track your learning journey and skill development</p>
             </div>
 
             <div className="grid grid-cols-4 gap-4">
                 {stats.map(s => (
-                    <div key={s.label} className="border border-border rounded-2xl p-5">
+                    <div key={s.label} className="border border-border dark:bg-bg-dark-hover dark:border-bg-dark-hover rounded-2xl p-5">
                         <p className="text-small text-muted">{s.label}</p>
-                        <p className="text-2xl font-bold mt-1">
+                        <p className="text-2xl font-bold mt-1 dark:text-white">
                             {s.value}{" "}
                             <span className="text-small font-medium text-teal-500">{s.badge}</span>
                         </p>
@@ -54,11 +54,11 @@ export default function Progress() {
                 ))}
             </div>
 
-            <div className="border border-border rounded-2xl p-6">
-                <h3 className="font-semibold mb-4">XP Growth (Last 7 Days)</h3>
+            <div className="border border-border dark:bg-bg-dark-hover dark:border-bg-dark-hover rounded-2xl p-6">
+                <h3 className="font-semibold mb-4 dark:text-white">XP Growth (Last 7 Days)</h3>
                 <ResponsiveContainer width="100%" height={260}>
                     <LineChart data={xpData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                         <XAxis dataKey="day" tick={{ fontSize: 12, fill: "#888" }} axisLine={false} tickLine={false} />
                         <YAxis tick={{ fontSize: 12, fill: "#888" }} axisLine={false} tickLine={false} domain={[0, 10000]} ticks={[0, 2500, 5000, 7500, 10000]} />
                         <Line type="monotone" dataKey="xp" stroke="#534AB7" strokeWidth={2} dot={{ fill: "#534AB7", r: 4 }} />
@@ -67,23 +67,23 @@ export default function Progress() {
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-                <div className="col-span-2 border border-border rounded-2xl p-6 space-y-5">
-                    <h3 className="font-semibold">Skill Levels</h3>
+                <div className="col-span-2 border border-border dark:bg-bg-dark-hover dark:border-bg-dark-hover rounded-2xl p-6 space-y-5">
+                    <h3 className="font-semibold dark:text-white">Skill Levels</h3>
                     {skills.map(s => (
                         <div key={s.name} className="space-y-1.5">
                             <div className="flex justify-between text-small">
-                                <span>{s.name}</span>
+                                <span className="dark:text-white">{s.name}</span>
                                 <span className="text-muted">{s.pct}%</span>
                             </div>
-                            <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div className="w-full h-2 bg-gray-100 dark:bg-bg-dark-hover rounded-full overflow-hidden">
                                 <div className="h-full rounded-full" style={{ width: `${s.pct}%`, background: s.color }} />
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="border border-border rounded-2xl p-6">
-                    <h3 className="font-semibold mb-4">Activity Heatmap</h3>
+                <div className="border border-border dark:bg-bg-dark-hover dark:border-bg-dark-hover rounded-2xl p-6">
+                    <h3 className="font-semibold mb-4 dark:text-white">Activity Heatmap</h3>
                     <div className="flex flex-col gap-1.5">
                         {heatmap.map((row, r) => (
                             <div key={r} className="flex gap-1.5">
