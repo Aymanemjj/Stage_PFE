@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Achievements extends Model
+class Achievement extends Model
 {
     protected  $fillable = [
         'name',

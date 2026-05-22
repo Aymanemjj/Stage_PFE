@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function achievements(): BelongsToMany{
-        return $this->belongsToMany(Achievements::class, 'achievements_user', 'user_id', 'achievement_id');
+        return $this->belongsToMany(Achievement::class, 'achievements_user', 'user_id', 'achievement_id');
     }
 
     public function league(): BelongsTo{
@@ -62,6 +62,6 @@ class User extends Authenticatable
     }
 
     public function rewards(): BelongsToMany{
-        return $this->belongsToMany(Rewards::class, 'rewards_user', 'user_id', 'reward_id');
+        return $this->belongsToMany(Reward::class, 'rewards_user', 'user_id', 'reward_id');
     }
 }
