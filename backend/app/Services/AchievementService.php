@@ -16,6 +16,13 @@ class AchievementService
         ], 200);
     }
 
+    public function showAchievementDetails(Achievement $achievement): JsonResponse
+    {
+        return response()->json([
+            'data' => AchievementResource::make($achievement),
+        ], 200);
+    }
+
     public function createAchievement(array $data): JsonResponse
     {
         return response()->json([

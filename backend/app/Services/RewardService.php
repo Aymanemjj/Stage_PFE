@@ -16,6 +16,12 @@ class RewardService
         ],200);
     }
 
+    public function showRewardDetails(Reward $reward):JsonResponse{
+        return response()->json([
+            'data' =>  RewardResource::make($reward)
+        ],200);
+    }
+
     public function createReward(array $data):JsonResponse{
         return response()->json([
             'data' =>  RewardResource::make(Reward::create($data))

@@ -16,6 +16,12 @@ class LeagueService
         ],200);
     }
 
+    public function showLeagueDetails(League $league):JsonResponse{
+        return response()->json([
+            'data' =>  LeagueResource::make($league)
+        ],200);
+    }
+
     public function createLeague(array $data):JsonResponse{
         return response()->json([
             'data' =>  LeagueResource::make(League::create($data))
