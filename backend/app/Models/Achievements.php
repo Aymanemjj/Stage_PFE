@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Achievements extends Model
 {
@@ -14,4 +15,8 @@ class Achievements extends Model
         'type',
         'requirements'
     ];
+
+    public function  achievedBy(): BelongsToMany{
+        return $this->belongsToMany(User::class, 'achievements_user', 'achievement_id', 'user_id');
+    }
 }

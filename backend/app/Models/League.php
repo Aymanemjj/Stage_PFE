@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class League extends Model
 {
@@ -11,4 +12,9 @@ class League extends Model
         'color',
         'minimum',
     ];
+
+
+    public function users(): HasMany{
+        return $this->hasMany(User::class);
+    }
 }
