@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreLeagueRequest extends FormRequest
 {
@@ -22,7 +24,31 @@ class StoreLeagueRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'       => 'required|string|max:255|unique:leagues',
+            'color'      => 'required|string|max:255|unique:leagues',
+            'minimum_xp' => 'required|integer|unique:leagues',
         ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required'       => 'Name is required.',
+            'name.unique'         => 'This league name already exists.',
+            'color.required'      => 'Color is required.',
+            'color.unique'        => 'This color is already used.',
+            'minimum_xp.required' => 'Minimum XP is required.',
+            'minimum_xp.integer'  => 'Minimum XP must be a number.',
+            'minimum_xp.unique'   => 'This minimum XP value is already used.',
+        ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'success' => false,
+            'message' => 'Validation error',
+            'error'   => $validator->errors()->messages(),
+        ], 422));
     }
 }
