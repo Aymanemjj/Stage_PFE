@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\LeagueService;
 
 class LeagueController extends Controller
 {
-    //
+    public function __construct(private LeagueService $leageusService){}
 }
