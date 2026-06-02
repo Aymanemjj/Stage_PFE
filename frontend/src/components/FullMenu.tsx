@@ -1,5 +1,5 @@
 import NavItem from "./NavItem.tsx";
-import {FiAward, FiGift, FiHome, FiShield, FiTarget, FiTrendingUp, FiUser} from "react-icons/fi";
+import {FiAward, FiGift, FiHome, FiShield, FiTarget, FiTrendingUp, FiUser, FiSettings} from "react-icons/fi";
 
 const items = [
     { to: "/", icon: <FiHome />, label: "LeaderBoard" },
@@ -9,6 +9,7 @@ const items = [
     { to: "/league", icon: <FiShield />, label: "League" },
     { to: "/progress", icon: <FiTrendingUp />, label: "Progress" },
     { to: "/rewards", icon: <FiGift />, label: "Rewards" },
+    { to: "/admin", icon: <FiSettings />, label: "Admin" },
 ];
 
 export default function FullMenu() {
