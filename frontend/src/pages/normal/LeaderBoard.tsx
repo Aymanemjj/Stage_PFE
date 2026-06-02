@@ -1,10 +1,13 @@
-import BasicTab from "../components/BasicTab.tsx";
-import LeaderboardTable from "../components/LeaderBoardTable.tsx";
+import BasicTab from "../../components/BasicTab.tsx";
+import LeaderboardTable from "../../components/LeaderBoardTable.tsx";
 import { useState } from "react";
-import {type LeaderBoardRow as Row} from "../types.ts";
+import {type LeaderBoardRow as Row} from "../../types.ts";
 
 
 type Tab = "weekly" | "monthly" | "allTime"
+
+
+
 
 const table: Record<Tab, Row[]> = {
     weekly: [

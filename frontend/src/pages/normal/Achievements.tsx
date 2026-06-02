@@ -1,12 +1,5 @@
-type Rarity = "common" | "rare" | "legendary";
+import {type Achievement, type Rarity} from "../../types.ts"
 
-type Achievement = {
-    emoji: string
-    title: string
-    desc: string
-    rarity: Rarity
-    unlocked: boolean
-}
 
 const achievements: Achievement[] = [
     { emoji: "👶", title: "First Steps", desc: "Complete your first course", rarity: "common", unlocked: true },

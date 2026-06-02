@@ -1,7 +1,7 @@
 import { useState } from "react";
-import MissionCard from "../components/MissionCard.tsx";
-import BasicTab from "../components/BasicTab.tsx";
-import {type Mission} from "../types.ts"
+import MissionCard from "../../components/MissionCard.tsx";
+import BasicTab from "../../components/BasicTab.tsx";
+import {type Mission} from "../../types.ts"
 
 type Tab = "daily" | "weekly"
 
